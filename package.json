@@ -1,0 +1,73 @@
+{
+  "name": "blog-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.3.2",
+    "axios": "^0.24.0",
+    "concurrently": "^6.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^8.0.0",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "^5.0.1",
+    "react-syntax-highlighter": "^15.4.5",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.1.2",
+    "uuidv4": "^6.2.12",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:dev": "concurrently --kill-others \"cd ../server & npm run start\" \"npm run start\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --watch --runInBand",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^13.5.2",
+    "@types/styled-components": "^5.1.15",
+    "msw": "^0.36.7"
+  },
+  "proxy": "http://localhost:3001/api/v1",
+  "msw": {
+    "workerDirectory": "public"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(react-markdown)/)",
+      "/node_modules/(?!(react-syntax-highlighter)/)",
+      "/node_modules/(?!(a11yDark)/)"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    }
+  }
+}
