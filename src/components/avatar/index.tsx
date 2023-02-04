@@ -1,6 +1,5 @@
-import { ReactElement, useEffect, useState } from 'react'
-import { Container, AvatarLogo, AvatarLetter } from './style'
-import { getRandomHexColor } from '../../utils/helperFns'
+import { ReactElement } from 'react'
+import { Container, AvatarLogo } from './style'
 
 interface Props {
 	user: {
@@ -10,7 +9,7 @@ interface Props {
 }
 
 export default function Avatar({ user }: Props): ReactElement {
-	return user.avatar ? <RealAvatar user={user} /> : <LetterAvatar user={user} />
+	return <RealAvatar user={user} />
 }
 
 function RealAvatar({ user }: Props): ReactElement {
@@ -19,22 +18,4 @@ function RealAvatar({ user }: Props): ReactElement {
 			<AvatarLogo src={user.avatar} />
 		</Container>
 	)
-}
-
-function LetterAvatar({ user }: Props): ReactElement {
-	const [color, setColor] = useState(getRandomHexColor())
-
-	useEffect(() => {
-		setColor(getRandomHexColor())
-	}, [user.username])
-
-	return (
-		<Container background={color}>
-			<AvatarLetter>{user.username.charAt(0).toUpperCase()}</AvatarLetter>
-		</Container>
-	)
-}
-
-function getRandomAvatar() {
-	const url = 'https://ui-avatars.com/api/?background=random&name='
 }
