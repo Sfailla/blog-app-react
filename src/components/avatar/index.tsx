@@ -1,27 +1,40 @@
-import { ReactElement } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { Container, AvatarLogo, AvatarLetter } from './style'
 import { getRandomHexColor } from '../../utils/helperFns'
 
 interface Props {
-  user: {
-    avatar: string | null
-    username: string
-  }
+	user: {
+		avatar: string | undefined
+		username: string
+	}
 }
 
 export default function Avatar({ user }: Props): ReactElement {
-  let hexcode
+	return user.avatar ? <RealAvatar user={user} /> : <LetterAvatar user={user} />
+}
 
-  if (user.avatar === null) hexcode = getRandomHexColor()
-  else hexcode = null
+function RealAvatar({ user }: Props): ReactElement {
+	return (
+		<Container>
+			<AvatarLogo src={user.avatar} />
+		</Container>
+	)
+}
 
-  return (
-    <Container background={hexcode}>
-      {user.avatar ? (
-        <AvatarLogo src={user.avatar} />
-      ) : (
-        <AvatarLetter>{user.username.charAt(0).toUpperCase()}</AvatarLetter>
-      )}
-    </Container>
-  )
+function LetterAvatar({ user }: Props): ReactElement {
+	const [color, setColor] = useState(getRandomHexColor())
+
+	useEffect(() => {
+		setColor(getRandomHexColor())
+	}, [user.username])
+
+	return (
+		<Container background={color}>
+			<AvatarLetter>{user.username.charAt(0).toUpperCase()}</AvatarLetter>
+		</Container>
+	)
+}
+
+function getRandomAvatar() {
+	const url = 'https://ui-avatars.com/api/?background=random&name='
 }
