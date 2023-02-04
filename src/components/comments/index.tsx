@@ -35,8 +35,6 @@ interface PostCommentProps {
 export default function ArticleComments({ article, comments, createComment }: Props): ReactElement {
 	const { user, profile } = useAuthContext()
 
-	console.log({ comments })
-
 	return (
 		<Container>
 			<Divider />
