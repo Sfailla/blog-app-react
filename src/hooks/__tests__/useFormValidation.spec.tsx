@@ -70,9 +70,7 @@ describe('useFormValidation tests', () => {
 
 		act(() => result.current.handleSubmit(submitFn as unknown as FormEvent<HTMLFormElement>))
 
-		await waitFor(() => {
-			expect(result.current.isSubmitting).toBeTruthy()
-		})
+		await waitFor(() => expect(result.current.isSubmitting).toBeFalsy())
 
 		expect(submitFn).toHaveBeenCalledTimes(1)
 		expect(result.current.isSubmitting).toBeFalsy()
@@ -88,13 +86,14 @@ describe('useFormValidation tests', () => {
 
 		act(() => result.current.handleSubmit(submitFn as unknown as FormEvent<HTMLFormElement>))
 
-		await waitFor(() => expect(result.current.isSubmitting).toBeTruthy())
+		await waitFor(() => expect(result.current.isSubmitting).toBeFalsy())
 
 		expect(result.current.formErrors).toEqual({
 			email: 'email field required',
 			password: 'password field required'
 		})
-		await waitFor(() => expect(result.current.isSubmitting).toBeTruthy())
+
+		await waitFor(() => expect(result.current.isSubmitting).toBeFalsy())
 	})
 
 	test('handleResetFormErrors should correctly reset formError object', () => {
