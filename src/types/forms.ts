@@ -1,12 +1,10 @@
 import { Tag } from './shared'
 
-export type FieldValues = Record<string, any>
+export type FieldValues = Record<string, string>
 
-export type ValidationErrors = FieldValues & {
-  error?: string
-}
-export interface CreateArticleFields extends FieldValues {
-  tags: Tag[]
+export type ValidationErrors = Record<string, string>
+export interface CreateArticleFields {
+	tags: Tag[]
 }
 
 export type Validate = (values: FieldValues) => ValidationErrors
