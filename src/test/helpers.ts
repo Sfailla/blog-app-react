@@ -1,12 +1,12 @@
 import { TestFields, PartialTestFields } from '../types/tests'
 
 export interface CustomEventFields {
-  name: string
-  value: string
+	name: string
+	value: string
 }
 
 export interface CustomEvent {
-  target: CustomEventFields
+	target: CustomEventFields
 }
 
 /**
@@ -17,9 +17,9 @@ export interface CustomEvent {
  */
 
 export function changeEvent({ name, value }: CustomEventFields): CustomEvent {
-  return {
-    target: { name, value }
-  }
+	return {
+		target: { name, value }
+	}
 }
 
 /**
@@ -29,11 +29,11 @@ export function changeEvent({ name, value }: CustomEventFields): CustomEvent {
  */
 
 export function buildRegisterForm(): TestFields {
-  return {
-    username: 'test-user',
-    email: 'test@test.com',
-    password: '1234'
-  }
+	return {
+		username: 'test-user',
+		email: 'test@test.com',
+		password: '1234'
+	}
 }
 
 /**
@@ -43,8 +43,8 @@ export function buildRegisterForm(): TestFields {
  */
 
 export function buildLoginForm(): PartialTestFields {
-  return {
-    email: 'test@test.com',
-    password: '1234'
-  }
+	return {
+		email: 'test@test.com',
+		password: '1234'
+	}
 }
