@@ -11,63 +11,63 @@ const slideUp = keyframes`
 `
 
 export const Container = styled.div<{ variant: ToastVariant; theme: ToastTheme }>`
-  width: 100%;
-  height: 6rem;
-  overflow: hidden;
-  background-color: ${props => (props.theme === 'light' ? '#ffffff' : '#323232')};
-  border-radius: 3px;
-  padding-right: 1rem;
-  ${flex('flex-start')};
-  border-left: 5px solid;
-  border-color: ${props =>
-    props.variant === 'success'
-      ? color.notifications.success
-      : props.variant === 'error'
-      ? color.notifications.error
-      : props.variant === 'info'
-      ? color.notifications.info
-      : color.notifications.warning};
-  animation: ${slideUp} 0.4s ease-in forwards;
+	width: 100%;
+	height: 6rem;
+	overflow: hidden;
+	background-color: ${props => (props.theme === 'light' ? '#ffffff' : '#323232')};
+	border-radius: 3px;
+	padding-right: 1rem;
+	${flex('flex-start')};
+	border-left: 5px solid;
+	border-color: ${props =>
+		props.variant === 'success'
+			? color.notifications.success
+			: props.variant === 'error'
+			? color.notifications.error
+			: props.variant === 'info'
+			? color.notifications.info
+			: color.notifications.warning};
+	animation: ${slideUp} 0.4s ease-in forwards;
 `
 
 export const IconSection = styled.div<{ variant: ToastVariant }>`
-  width: 7.5rem;
-  ${flex()};
+	width: 7.5rem;
+	${flex()};
 
-  & > svg path {
-    fill: ${props =>
-      props.variant === 'success'
-        ? color.notifications.success
-        : props.variant === 'error'
-        ? color.notifications.error
-        : props.variant === 'info'
-        ? color.notifications.info
-        : color.notifications.warning};
-  }
+	& > svg path {
+		fill: ${props =>
+			props.variant === 'success'
+				? color.notifications.success
+				: props.variant === 'error'
+				? color.notifications.error
+				: props.variant === 'info'
+				? color.notifications.info
+				: color.notifications.warning};
+	}
 `
 
 export const Body = styled.div<{ theme: ToastTheme }>`
-  width: 100%;
-  height: 100%;
-  ${flex('center', 'flex-start', 'column')};
-  color: ${props => (props.theme === 'light' ? color.primary.darkblue : color.secondary.white)};
-  padding: 0.5rem;
-  padding-left: 0;
+	width: 100%;
+	height: 100%;
+	${flex('center', 'flex-start', 'column')};
+	color: ${props => (props.theme === 'light' ? color.darkblue : color.white)};
+	padding: 0.5rem;
+	padding-left: 0;
 `
 
 export const Title = styled.h3`
-  display: block;
+	display: block;
 `
 
 export const Message = styled.p``
 
 export const ButtonContainer = styled.div`
-  width: 3rem;
-  height: 100%;
-  ${flex('center')};
+	width: 3rem;
+	height: 100%;
+	${flex('center')};
 
-  & > svg {
-    cursor: pointer;
-    color: grey;
-  }
+	& > svg {
+		cursor: pointer;
+		color: grey;
+	}
 `

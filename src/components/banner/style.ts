@@ -33,5 +33,5 @@ export const Subtitle = styled.h3`
 	font-weight: normal;
 	margin-top: 1rem;
 	letter-spacing: 1px;
-	color: ${color.secondary.white};
+	color: ${color.white};
 `
