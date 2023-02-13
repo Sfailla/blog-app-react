@@ -1,12 +1,12 @@
 import {
-	ReactElement,
 	ReactNode,
 	useContext,
 	createContext,
 	useMemo,
 	useState,
 	Dispatch,
-	SetStateAction
+	SetStateAction,
+	ReactElement
 } from 'react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { theme } from '../styles/theme'
