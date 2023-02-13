@@ -10,7 +10,7 @@ export interface User {
 }
 
 export interface Author {
-	avatar: string | undefined
+	avatar: string
 	username: string
 	id: string
 }
@@ -70,7 +70,7 @@ export type ResponseError = Pick<ServerError, 'message' | 'status'>
 export type ArticleError = string
 
 export type ArticleOrUndefined = Article[] | undefined
-export interface ArticleOrError {
+export interface ArticleResponse {
 	article: Article
 	articles: Article[]
 	error: ResponseError

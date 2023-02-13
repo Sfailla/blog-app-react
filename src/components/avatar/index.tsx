@@ -3,7 +3,7 @@ import { Container, AvatarLogo } from './style'
 
 interface Props {
 	user: {
-		avatar: string | undefined
+		avatar: string
 		username: string
 	}
 }
